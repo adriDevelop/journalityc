@@ -22,4 +22,9 @@ public class APIExceptionHandler {
         return build(HttpStatus.BAD_REQUEST, exception, req);
     }
 
+    @ExceptionHandler(UsuarioNoEncontradoException.class)
+    public ResponseEntity<ErrorResponseDTO> usuarioNoEncontrado(UsuarioNoEncontradoException exception, HttpServletRequest req){
+        return build(HttpStatus.BAD_REQUEST, exception, req);
+    }
+
 }
