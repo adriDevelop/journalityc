@@ -32,5 +32,7 @@ public class Usuario {
     @Column(unique = true)
     private String email;
     @Column
+    private String ROL = "SUPER_ADMIN";
+    @Column
     private String password;
 }
