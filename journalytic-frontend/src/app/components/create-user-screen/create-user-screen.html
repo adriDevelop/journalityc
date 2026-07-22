@@ -1,0 +1,67 @@
+<section id="create-user-screen" class="flex justify-center h-screen text-white bg-[#0F172A]">
+  <div class="flex flex-col justify-center gap-6 w-[200]">
+    <div class="flex flex-col gap-2">
+      <h1 class="text-4xl">Bienvenido/a a <span class="font-bold">Journalytic</span></h1>
+      <p>
+        Por favor, introduce el nombre y la contraseña del usuario que se va a encargado de la
+        gestión de la web.
+      </p>
+    </div>
+    <div class="flex w-full flex-col h-max">
+      <form>
+        <div class="flex flex-col gap-3 bg-[#1E293B] rounded-xl w-full p-6">
+          <label for="username">Nombre de usuario</label>
+          <input
+            type="text"
+            id="username"
+            class="input rounded-xl p-2"
+            [formField]="registrationValidator.username"
+          />
+          @if (
+            registrationValidator.username().touched() && registrationValidator.username().invalid()
+          ) {
+            @for (error of registrationValidator.username().errors(); track error) {
+              <span>{{ error.message }}</span>
+            }
+          }
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            class="input rounded-xl p-2"
+            [formField]="registrationValidator.password"
+          />
+          @if (
+            registrationValidator.password().touched() && registrationValidator.password().invalid()
+          ) {
+            @for (error of registrationValidator.password().errors(); track error) {
+              <span>{{ error.message }}</span>
+            }
+          }
+          <label for="password-repited">Repite contraseña</label>
+          <input
+            type="password"
+            id="password-repited"
+            class="input rounded-xl p-2"
+            [formField]="registrationValidator.passwordRepite"
+          />
+          @if (
+            registrationValidator.passwordRepite().touched() &&
+            registrationValidator.passwordRepite().invalid()
+          ) {
+            @for (error of registrationValidator.passwordRepite().errors(); track error) {
+              <span>{{ error.message }}</span>
+            }
+          }
+          <button
+            class="w-full bg-[#6366F1] rounded-xl p-2 cursor-pointer mt-2"
+            (click)="crearUsuario()"
+            [disabled]="registrationValidator().invalid()"
+          >
+            Crear usuario
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
