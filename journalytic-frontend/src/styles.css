@@ -5,6 +5,16 @@
   --font-sans: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+@layer components {
+  .input {
+    @apply w-full bg-[#F8FAFC] text-[#020202];
+  }
+
+  .button {
+    @apply w-full bg-[#6366F1] rounded-xl p-2 cursor-pointer mt-2;
+  }
+}
+
 /* Estilos base */
 html,
 body {
